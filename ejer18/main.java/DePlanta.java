@@ -3,7 +3,7 @@ public class DePlanta extends Contrato(){
     private double montoPorHijo;
     private double montoPorConyuge;
 
-    public DePlanta(LocalDate fInicio, Empleado empleado, double saldoMensual, double montoPorHijo, double montoPorConyuge){
+    public DePlanta(LocalDate fInicio, double saldoMensual, double montoPorHijo, double montoPorConyuge){
         this.super(fInicio,empleado);
         this.saldoMensual = saldoMensual;
         this.montoPorHijo = montoPorHijo;
