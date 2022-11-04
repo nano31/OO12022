@@ -11,10 +11,10 @@ public class PorHoras extends Contrato(){
     }
 
     public double calcularMonto(){
-        return
+        return this.valorPorHoras * this.cantHoras;
     }
 
     public boolean estaVencido(){
-        return 
+        return (this.fechaFin.isBefore(LocalDate.now()) || this.fechaFin.isEqual(LocalDate.now()));
     }
 }

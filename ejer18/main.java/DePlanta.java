@@ -11,10 +11,16 @@ public class DePlanta extends Contrato(){
     }
 
     public double calcularMonto(){
-        return 
+        double monto = this.saldoMensual;
+        if(this.getEmpleado().tieneConyugue()){
+            monto += this.montoPorConyuge;
+        }
+        if(this.getEmpleado().tieneHijo()){
+            monto += this.montoPorHijo;
+        }
     }
 
     public boolean estaVencido(){
-        return this.
+        return false;
     }
 }
