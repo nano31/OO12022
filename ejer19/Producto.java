@@ -21,11 +21,19 @@ public class Producto(){
         return this.cantUnidades;
     }
 
+    public Strign getDireccionVendedor(){
+        return this.vendedor.getDireccion();
+    }
+
     public int actualizarStock(int cantidadSolicitada){
         return this.getCantidadUnidades() -= cantidadSolicitada;
     }
 
     public boolean tieneStock(){
         return (this.getCantidadUnidades() > 0);
+    }
+
+    public double precioPorCantidad(int cantidad){
+        return this.precio * cantidad;
     }
 }
