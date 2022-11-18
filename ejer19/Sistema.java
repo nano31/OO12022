@@ -31,4 +31,8 @@ public class Sistema(){
         Pedido pedido = cliente.hacerPedido(producto, cantSolicitada, formaEnvio, formaPago);
         return pedido;
     }
+
+    public double calcularCostoTotal(Pedido pedido){
+        return pedido.calcularTotal(); 
+    }
 }

@@ -25,9 +25,12 @@ public class Persona{
         return producto;
     }
 
-    public Pedido crearPedido(Producto producto, int cantSolicitada, Envio formaEnvio, Pago formaPago){
-        Pedido pedido = new Pedido(producto,cantSolicitada,formaEnvio,formaPago);
-        this.pedidos.add(pedido);
-        return pedido;
+    public Pedido hacerPedido(Producto producto, int cantSolicitada, Envio formaEnvio, Pago formaPago){
+        if (producto.tieneStock()){
+            Pedido pedido = new Pedido(producto,cantSolicitada,formaEnvio,formaPago);
+            this.pedidos.add(pedido);
+            producto.actualizarStock();
+            return pedido;
+        }
     }
 }
