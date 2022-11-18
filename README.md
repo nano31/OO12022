@@ -1,1 +1,2 @@
 # OO12022
+En este repositorio se encuentran resueltos algunos de los ejerciciosde la materia "Orientacion a Objetos 1", correspondiente al segundo cuatrimestre del segundo año de la carrera "Licenciatura en Informatica" perteneciente a la "Facultad de Informatica de la UNLP".
