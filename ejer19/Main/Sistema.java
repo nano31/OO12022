@@ -27,7 +27,7 @@ public class Sistema(){
             .filter(producto -> producto != null).collect(Collectors.toList());
     }
 
-    public Pedido crearPedido(Producto producto, int cantSolicitada, Envio formaEnvio, Pago formaPago){
+    public Pedido crearPedido(Producto producto, int cantSolicitada, Envio formaEnvio, Pago formaPago, Cliente cliente){
         Pedido pedido = cliente.hacerPedido(producto, cantSolicitada, formaEnvio, formaPago);
         return pedido;
     }
