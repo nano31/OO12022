@@ -1,49 +1,34 @@
 public class Sistema(){
-    private List<Vendedor> vendedores;
-    private List<Cliente> clientes;
-    private List<Producto> productos;
+    private List<Persona> usuarios;
 
     public Sistema(){
-        this.vendedores = new ArrayList<Vendedor>();
-        this.clientes = new ArrayList<Cliente>();
-        this.productos = new ArrayList<Producto>();
+        this.usuarios = new ArrayList<Persona>();
     }
 
-    public Vendedor agregarVendedor(String nombre, String direccion){
-        Vendedor vendedor = new Vendedor(nombre, direccion);
-        this.vendedores.add(vendedor);
-        return vendedor;
+    public Persona agregarUsuario(String nombre, String direccion){
+        Persona persona = new Persona(nombre, direccion);
+        this.usuarios.add(persona);
+        return persona;
     }
 
-    public Cliente agregarCliente(String nombre, String dirrecion){
-        Cliente cliente = new Cliente(nombre, direccion);
-        this.clientes.add(cliente);
-        return cliente;
+    public buscarUsuario(String nombre){
+        return this.usuarios.stream()
+            .filter(usuario -> usuario.getNombre().startsWith(nombre))
+            .findFirst().orElse(null);
     }
 
-    public Producto ponerProductoEnVenta(String nombre, String descripcion, double precio, 
-            int cantUnidades, Vendedor vendedor){
-        Producto producto = new Producto(nombre, descripcion, precio, cantUnidades, vendedor);
-        this.productos.add(producto);
+    public Producto cargarProducto(String nombre, String descripcion, double precio, int cantDisponibles, Persona vendedor){
+        Producto producto = vendedor.cargarProducto(nombre,descripcion,precio,cantDisponibles);
         return producto;
     }
 
-    public Vendedor buscarVendedor(String nombre){
-        return this.vendedores.stream()
-            .filter(vendedor -> vendedor.getNombre().startsWith(nombre))
-            .findFirst().orElse(null);
-    }
-
-    public Cliente buscarCliente(String nombre){
-        return this.clientes.stream()
-            .filter(cliente -> cliente.getNombre().startsWith(nombre))
-            .findFirst().orElse(null);
-    }
-
     public List<Producto> buscarProducto(String nombre){
-        return this.productos.stream()
-            .filter(producto -> producto.getNombre().equals(nombre))
-            .collect(Collectors.toList());
+        return this.usuarios.stream().map(usuario -> usuario.buscarProducto(nombre))
+            .filter(producto -> producto != null).collect(Collectors.toList());
     }
 
+    public Pedido crearPedido(Producto producto, int cantSolicitada, Envio formaEnvio, Pago formaPago){
+        Pedido pedido = cliente.hacerPedido(producto, cantSolicitada, formaEnvio, formaPago);
+        return pedido;
+    }
 }

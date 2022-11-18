@@ -1,0 +1,23 @@
+Vendedor y cliente comparten los mismos atributos, por lo tanto implemento una clase Persona, para referirme a ellos.
+* Un vendedor debe poder conocer los productos que vende por lo tanto -->
+    List<Producto> productos;
+
+* Un cliente debe poder conocer todos los pedidos que realiza por lo tanto -->
+    List<Pedido> pedidos;
+
+* Para agregar un producto -->
+    vendedor.agregarProducto(producto)
+    public List<Producto> agregarProducto(Producto producto){
+        this.productos.add(producto)
+    }
+
+* Para registrar un pedido -->
+    cliente.agregarPedido(pedido)
+    public List<Pedido> agregarPedido(Pedido pedido){
+        this.pedidos.add(pedido);
+    }
+
+* Tipos de pago --> AlContado o PagoEn6Cuotas
+* Tipos de envio --> RetiroEnLocal, RetiroSucursalCorreo, EnvioADomicilio
+
+* Pago y Envio deben ser clases abstractas, para poder implementar sus diferentes tipos.
